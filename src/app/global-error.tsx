@@ -2,8 +2,8 @@
 
 export default function GlobalError({error}: {error: Error}) {
     return (
-        <div>
-            <h1>GlobalError</h1>
+        <div className="flex justify-center">
+            <h1>Global Error</h1>
             {error.message}
         </div>
     )
