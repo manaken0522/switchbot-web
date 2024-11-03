@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --sb-primary:#e0393a;
+    --sb-secondary: #d0292a;
+}
+
+h1.title {
+    color: var(--sb-color);
+}
