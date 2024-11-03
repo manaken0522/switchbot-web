@@ -1,7 +1,7 @@
 export default function Page() {
     return (
         <div>
-            <h1 style={{color: "var(--sb-primary)"}} className="text-4xl text-center">Login</h1>
+            <h1 style={{color: "var(--sb-primary)"}} className="text-4xl text-center mb-4">Login</h1>
             <div className="max-w-xl mx-auto rounded">
                 <form className="shadow-2xl rounded p-8">
                     <div className="mb-4">

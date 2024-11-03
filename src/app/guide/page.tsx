@@ -3,8 +3,8 @@ import Image from 'next/image'
 export default function Page() {
     return (
         <div>
-            <h1 style={{color: "var(--sb-primary)"}} className="text-4xl text-center">Guide</h1>
-            <br />
+            <h1 style={{color: "var(--sb-primary)"}} className="text-4xl text-center mb-4">Guide</h1>
+            
             <h2 style={{color: "var(--sb-secondary)"}} className="text-3xl text-center">Tokenの入手方法</h2>
             <div className="flex justify-evenly">
                 <span>
