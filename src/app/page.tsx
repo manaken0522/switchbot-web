@@ -1,7 +1,7 @@
 export default function Page() {
     return (
-        <div className="flex justify-center">
-            作成中
+        <div>
+            <h1 className="text-center text-4xl">作成中</h1>
         </div>
     )
 }
