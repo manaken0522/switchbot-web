@@ -1,6 +1,6 @@
 'use client'
 
-import axios from 'axios'
+import axios, { AxiosError } from 'axios'
 
 export default function Page() {
     const handleSubmit = () => {
@@ -13,8 +13,26 @@ export default function Page() {
 
         if(tokenElement.value != '' && csElement.value != '') {
             axios.post('/api/proxy/devices', {token: tokenElement.value, client_secret: csElement.value})
-                .then((response) => {
-                    console.log(response.data);
+                .then(response => {
+                    if(response.status === 200) {
+                        console.log(response.data);
+                    }
+                })
+                .catch(error => {
+                    if(error instanceof AxiosError) {
+                        if(error.status === 401) {
+                            console.log("TokenかClient Secretが間違っています")
+                        }
+                        else if(error.status === 500) {
+                            const responseJson = JSON.parse(error.response?.data);
+                            if(responseJson.type === 0) {
+                                console.log('プロキシでエラーが返されました');
+                            }
+                            else if(responseJson.type === 1) {
+                                console.log('SwitchBot APIでエラーが返されました');
+                            }
+                        }
+                    }
                 })
         }
     }
