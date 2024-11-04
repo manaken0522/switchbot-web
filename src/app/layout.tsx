@@ -1,6 +1,6 @@
-import './global.scss'
-import Header from '../components/header'
-import Footer from '../components/footer'
+import './global.scss';
+import Header from '../components/header';
+import Footer from '../components/footer';
 
 export default function Layout({children}: {children: React.ReactNode}) {
     return (

@@ -1,6 +1,6 @@
-import axios, { AxiosError } from "axios";
-import { createHmac, randomUUID } from "crypto";
-import { NextRequest, NextResponse } from "next/server";
+import axios, { AxiosError } from 'axios';
+import { createHmac, randomUUID } from 'crypto';
+import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(request: NextRequest) {
     const data = await request.json();
@@ -26,10 +26,10 @@ export async function POST(request: NextRequest) {
         
         catch(error) {
             if(error instanceof AxiosError) {
-                return NextResponse.json({message: "SwitchBot APIによるエラー", type: 1}, {status: error.status})
+                return NextResponse.json({message: 'SwitchBot APIによるエラー', type: 1}, {status: error.status})
             }
             else {
-                return NextResponse.json({message: "プロキシサーバーによるエラー", type: 0}, {status: 500})
+                return NextResponse.json({message: 'プロキシサーバーによるエラー', type: 0}, {status: 500})
             }
         }
     }

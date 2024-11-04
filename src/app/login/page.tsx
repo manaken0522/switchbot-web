@@ -1,6 +1,6 @@
 'use client'
 
-import axios, { AxiosError } from 'axios'
+import axios, { AxiosError } from 'axios';
 
 export default function Page() {
     const handleSubmit = () => {
@@ -21,7 +21,7 @@ export default function Page() {
                 .catch(error => {
                     if(error instanceof AxiosError) {
                         if(error.status === 401) {
-                            console.log("TokenかClient Secretが間違っています")
+                            console.log('TokenかClient Secretが間違っています');
                         }
                         else if(error.status === 500) {
                             const responseJson = JSON.parse(error.response?.data);
