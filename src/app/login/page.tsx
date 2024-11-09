@@ -11,24 +11,24 @@ export default function Page() {
         element = document.getElementById('client_secret');
         const csElement = element as HTMLInputElement;
 
-        if(tokenElement.value != '' && csElement.value != '') {
+        if (tokenElement.value != '' && csElement.value != '') {
             axios.post('/api/proxy/devices', {token: tokenElement.value, client_secret: csElement.value})
                 .then(response => {
-                    if(response.status === 200) {
+                    if (response.status === 200) {
                         console.log(response.data);
                     }
                 })
                 .catch(error => {
-                    if(error instanceof AxiosError) {
-                        if(error.status === 401) {
+                    if (error instanceof AxiosError) {
+                        if (error.status === 401) {
                             console.log('TokenかClient Secretが間違っています');
                         }
-                        else if(error.status === 500) {
+                        else if (error.status === 500) {
                             const responseJson = JSON.parse(error.response?.data);
-                            if(responseJson.type === 0) {
+                            if (responseJson.type === 0) {
                                 console.log('プロキシでエラーが返されました');
                             }
-                            else if(responseJson.type === 1) {
+                            else if (responseJson.type === 1) {
                                 console.log('SwitchBot APIでエラーが返されました');
                             }
                         }

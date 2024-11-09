@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(request: NextRequest) {
     const data = await request.json();
-    if(data.token != '' && data.client_secret != '') {
+    if (data.token != '' && data.client_secret != '') {
         const token = data.token;
         const client_secret = data.client_secret;
         const t = new Date().getTime()
@@ -25,7 +25,7 @@ export async function POST(request: NextRequest) {
         }
         
         catch(error) {
-            if(error instanceof AxiosError) {
+            if (error instanceof AxiosError) {
                 return NextResponse.json({message: 'SwitchBot APIによるエラー', type: 1}, {status: error.status})
             }
             else {
